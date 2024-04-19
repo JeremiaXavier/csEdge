@@ -9,13 +9,18 @@
         /* Custom CSS */
         body {
             background-color: #f8f9fa; /* Light gray background */
+            font-family: 'Arial', sans-serif; /* Default font family */
+        }
+        .hero, .feature, .testimonial, .card {
+            border-radius: 15px; /* Rounded border */
+            overflow: hidden;
         }
         .hero {
             position: relative;
-            background-image: url('images/christopher-gower-m_HRfLhgABo-unsplash.jpg'); /* Random image placeholder */
+            background-color: #e9ebed; /* Background color */
             background-size: cover;
             background-position: center;
-            color: #fff; /* White text */
+            color: #060101; /* Text color */
             text-align: center;
             padding: 100px 0;
         }
@@ -25,23 +30,33 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+            background-color: rgba(244, 241, 241, 0.995); /* Semi-transparent overlay */
         }
         .hero-content {
             position: relative;
             z-index: 1;
         }
+        .hero h1 {
+            font-weight: bold; /* Bold font weight */
+            font-size: 3rem; /* Larger font size */
+            line-height: 1.2; /* Increased line height */
+            font-family: 'Arial Black', sans-serif; /* Custom font family */
+            color: #222; /* Darker text color */
+        }
         .feature {
             padding: 20px;
             text-align: center;
+            transition: transform 0.3s ease-in-out; /* Animation effect */
+        }
+        .feature:hover {
+            transform: scale(1.05); /* Scale on hover */
         }
         .testimonial {
             margin-bottom: 30px;
+            transition: transform 0.3s ease-in-out; /* Animation effect */
         }
-        .social-media a {
-            display: inline-block;
-            margin-right: 10px;
-            color: #fff; /* White social media icons */
+        .testimonial:hover {
+            transform: translateY(-10px); /* Move up on hover */
         }
         footer {
             background-color: #343a40; /* Dark gray footer */
@@ -49,15 +64,76 @@
             text-align: center;
             padding: 20px 0;
         }
+
+        /* About Section Styles */
+        #about {
+            padding: 100px 0;
+            background-color: #fff; /* White background */
+        }
+        #about h2 {
+            font-size: 2.5rem; /* Larger font size */
+            font-weight: bold; /* Bold font weight */
+            color: #060101; /* Darker text color */
+            margin-bottom: 30px;
+            opacity: 0; /* Initially hidden */
+            transform: translateY(50px); /* Initially translate down */
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        #about p {
+            font-size: 1.2rem; /* Larger font size */
+            font-weight: 500; /* Semi-bold font weight */
+            color: #444; /* Dark gray text color */
+            margin-bottom: 20px;
+            opacity: 0; /* Initially hidden */
+            transform: translateY(50px); /* Initially translate down */
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        #about .container {
+            max-width: 800px; /* Limit container width */
+        }
+        #about .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        #hero .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(0px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(50px);
+            }
+        }
+        .fadeInUp {
+            animation-name: fadeInUp;
+        }
+        .fadeInDown {
+            animation-name: fadeInDown;
+        }
     </style>
 </head>
 <body>
 
     <!-- Header Section -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#">CSEdge</a>
+                <a class="navbar-brand" href="#" ><h2 style="font-weight: 600;">CSEdge</h2></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -79,11 +155,40 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <h1>Welcome to CSEdge</h1>
-            <p>Your catchy tagline goes here</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="animated fadeInUp">Unlock your <br>
+                        potential <br>
+                        with CSEdge</h1>
+                    <h3 class="animated fadeInUp">Where learning meets opportunity
+                        in a month-long online internship
+                        journey.</h3>
+                </div>
+                <div class="col-md-6">
+                    <img src="images/pngwing.com (2).png" alt="Your Image" class="img-fluid animated fadeInDown" id="heroImg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/pngwing.com (1).png" alt="Your Image" class="img-fluid animated fadeInDown" id="heroImg">
+                    </div>
+                <div class="col-md-6">
+                    <h2 class="text-center animated fadeInUp">About CSEdge</h2>
+                    <p class="text-center animated fadeInUp">CSEdge is an online internship platform that provides students with the opportunity to gain practical experience in the field of software development. We offer a variety of internship programs that are designed to help students develop their skills and enhance their employability.</p>
+                    <p class="text-center animated fadeInUp">We believe that internships are a great way for students to gain practical experience and develop their skills. Our programs are designed to help students gain practical experience in the field of software development.</p>
+                </div>
+                
+            </div>
+            
         </div>
     </section>
 
@@ -93,20 +198,28 @@
             <h2 class="text-center">Features</h2>
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-4 feature">
-                    <h3>Feature 1</h3>
-                    <p>Description of feature 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Feature 1</h3>
+                            <p class="card-text">Description of feature 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6 col-lg-4 feature">
-                    <h3>Feature 2</h3>
-                    <p>Description of feature 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Feature 2</h3>
+                            <p class="card-text">Description of feature 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6 col-lg-4 feature">
-                    <h3>Feature 3</h3>
-                    <p>Description of feature 3. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-                <div class="col-md-6 col-lg-4 feature">
-                    <h3>Feature 4</h3>
-                    <p>Description of feature 4. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Feature 3</h3>
+                            <p class="card-text">Description of feature 3. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -116,19 +229,49 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <h2 class="text-center">Testimonials</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-6 testimonial">
-                    <blockquote>
-                        "Testimonial 1 goes here."
-                    </blockquote>
-                    <cite>John Doe</cite>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 testimonial">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <blockquote class="blockquote mb-0">
+                                            <p>"Testimonial 1 goes here."</p>
+                                        </blockquote>
+                                        <footer class="blockquote-footer">John Doe</footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 testimonial">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <blockquote class="blockquote mb-0">
+                                            <p>"Testimonial 2 goes here."</p>
+                                        </blockquote>
+                                        <footer class="blockquote-footer">Jane Smith</footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 testimonial">
-                    <blockquote>
-                        "Testimonial 2 goes here."
-                    </blockquote>
-                    <cite>Jane Smith</cite>
-                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
     </section>
@@ -137,26 +280,7 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="text-center">Contact Us</h2>
-            <form action="submit.php" method="POST">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send</button>
-            </form>
-            <div class="social-media">
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
-                <a href="#">Instagram</a>
-            </div>
+            <!-- Contact form goes here -->
         </div>
     </section>
 
@@ -171,5 +295,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </body>
 </html>
